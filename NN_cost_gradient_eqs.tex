@@ -1,0 +1,161 @@
+\documentclass[pdflatex]{article}
+
+ \usepackage{epsfig} 
+ \usepackage{graphics}  
+ \usepackage{latexsym,amsmath,amsfonts,amsthm,amssymb} 
+ \usepackage{euscript,amsbsy} 
+ \usepackage{graphicx} 
+
+
+%\usepackage{amssymb}
+\usepackage{amscd}
+%\usepackage{showkeys}
+\usepackage{color}
+%\usepackage[active]{srcltx} %% allows inverse search with kdvi
+
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.mps,.eps}
+\usepackage{cmap}
+
+
+\setlength{\topmargin}{-.4in}
+\setlength{\textheight}{8.5in}
+\setlength{\oddsidemargin}{-.7in}
+\setlength{\textwidth}{7.6in}
+
+
+
+\newcommand{\R}{\color{red}}
+\newcommand{\B}{\color{black}}
+\newcommand{\cL}{\mathcal{L}}
+
+
+%\usepackage[light,math]{anttor}
+%\usepackage[light,math]{calligra}
+%\usepackage{calligra}
+%\usepackage{emerald}
+%\usepackage[T1]{fontenc}
+%
+
+%\renewcommand{\vec}[1]{\mathbf{\underline{#1}}}
+\renewcommand{\v}[1]{\vec{\mathbf{#1}}}
+
+\usepackage{xcolor}
+\colorlet{myred}{red!80!black}
+\colorlet{myblue}{blue!80!black}
+\colorlet{mygreen}{green!60!black}
+\colorlet{myorange}{orange!70!red!60!black}
+\colorlet{mydarkred}{red!60!black}
+\colorlet{mydarkblue}{blue!60!black}
+\colorlet{mydarkgreen}{green!50!black}
+
+
+
+
+
+
+\begin{document}
+
+
+\def\agr#1{{\color{mygreen}a_{#1}^{(0)}}}
+\def\ag#1{{\color{mygreen}x_{#1}}}
+ {$\begin{aligned} %\underset{\text{bias}}{b_1}
+       {\color{mydarkred}\mathbf{a}^{(2)}} =
+       \sigma({\color{mydarkred}\mathbf{z}^{(2)}}) 
+       &= \color{black}\sigma\left( \color{black}
+             W^{(2)}_{1,1}\color{black}\sigma\left( \color{black}
+             W^{(1)}_{1,1}\agr{1} + b_1^{(1)}\right) + W^{(2)}_{1,2}\sigma\left( \color{black}
+             W^{(1)}_{2,1}\agr{1} + b_2^{(1)}
+             \right) + b_1^{(2)}
+             \color{black}\right) = \\
+           \\
+        &= \color{black}\sigma\left( \color{black}
+             W^{(2)}_{1,1}\color{black}\sigma\left( \color{black}
+             W^{(1)}_{1,1}\ag{} + b_1^{(1)}\right) + W^{(2)}_{1,2}\sigma\left( \color{black}
+             W^{(1)}_{2,1}\ag{} + b_2^{(1)}
+             \right) + b_1^{(2)}
+             \color{black}\right) = \\
+           \\
+           & = \color{black}\sigma\left( \color{black}
+             W^{(2)}_{1,1}\color{black}\sigma\left( \color{mydarkblue}
+             z^{(1)}_{1}\right) + W^{(2)}_{1,2}\sigma\left(\color{mydarkblue}
+             z^{(1)}_{2}
+             \right) + b_1^{(2)}
+             \color{black}\right) =  \color{myred} y\\
+           \\
+      \end{aligned}$} 
+
+
+    \[
+      \]
+
+      The cost function is defined as
+      \def\yr{{\color{myred}y}}
+      \def\xg{{\color{mygreen}x}}
+      \def\zr{{\color{myred}z}}
+      \def\zb{{\color{myblue}z}}
+      \begin{align}
+        C(\mathbf{\xg},\mathbf{\yr)} & = \frac{1}{2} \sum_{i=1}^{n} [ \yr_i-f({\xg_i})]^2  =
+        \\
+        \\
+        & =   \frac{1}{2} \sum_{i=1}^{n} \left[
+           \color{black}\sigma\left( \color{black}
+             W^{(2)}_{1,1}\color{black}\sigma\left( \color{black}
+             W^{(1)}_{1,1}\xg_i + b_1^{(1)}\right) + W^{(2)}_{1,2}\sigma\left( \color{black}
+             W^{(1)}_{2,1}\xg_i + b_2^{(1)}
+             \right) + b_1^{(2)} 
+             \color{black}\right) - f(\xg_i) 
+          \right]^2 =\\
+        \\
+          & = 
+          C(W^{(1)}_{1,1}, W^{(1)}_{2,1}, b^{(1)}_1,b^{(1)}_2,
+            W^{(2)}_{1,1},W^{(2)}_{1,2},b^{(2)}_1,\mathbf{\xg}) 
+          \end{align}
+
+          \begin{align}
+W^{(1)}_{1,1}  \rightarrow W^{(1)}_{1,1} - h  \frac{\partial C}{\partial W^{(1)}_{1,1}} \\
+ W^{(1)}_{2,1} \rightarrow W^{(1)}_{2,1} - h   \frac{\partial C}{\partial W^{(1)}_{2,1}} \\
+W^{(2)}_{1,1} \rightarrow W^{(2)}_{1,1} - h            \frac{\partial C}{\partial W^{(2)}_{1,1}} \\
+ W^{(2)}_{1,2} \rightarrow  W^{(2)}_{1,2} - h             \frac{\partial C}{\partial W^{(2)}_{1,2}} \\
+b^{(1)}_1 \rightarrow b^{(1)}_1  - h             \frac{\partial C}{\partial b^{(1)}_1} \\
+b^{(1)}_2 \rightarrow b^{(1)}_2 - h   \frac{\partial C}{\partial b^{(1)}_2} \\
+b^{(2)}_1 \rightarrow  b^{(2)}_1 - h \frac{\partial C}{\partial b^{(2)}_1} 
+           \end{align}
+
+
+    \begin{align}
+\frac{\partial C}{\partial W^{(1)}_{1,1}} & =\sum_{i=1}^{n}  (\yr_i-f(\xg_i))
+            \sigma'(\zr^{(2)}_1) \;\cdot\; W^{(2)}_{1,1}\sigma'(\zb^{(1)}_1)
+                                  \; \xg_i \\
+            \frac{\partial C}{\partial W^{(1)}_{2,1}} & = \sum_{i=1}^{n}  (\yr_i-f(\xg_i))
+            \sigma'(\zr^{(2)}_1) \; \cdot \;W^{(2)}_{1,2}\sigma'(\zb^{(1)}_2)
+                                 \;  \xg_i \\
+           \frac{\partial C}{\partial W^{(2)}_{1,1}} & = \sum_{i=1}^{n}  (\yr_i-f(\xg_i))
+            \sigma'(\zr^{(2)}_1)\;\cdot\;\sigma(\zb^{(1)}_1\color{black})\\
+\frac{\partial C}{\partial W^{(2)}_{1,2}} & = \sum_{i=1}^{n}  (\yr_i-f(\xg_i))
+            \sigma'(\zr^{(2)}_1) \;\cdot\; \sigma(\zb^{(1)}_2\color{black})\\
+ \frac{\partial C}{\partial b^{(1)}_1} & = \sum_{i=1}^{n}  (\yr_i-f(\xg_i))
+            \sigma'(\zr^{(2)}_1) \;\cdot\;
+                                         W^{(2)}_{1,1}\sigma'(\zb^{(1)}_1)
+            \\                             \frac{\partial C}{\partial
+            b^{(1)}_2} & = \sum_{i=1}^{n}  (\yr_i-f(\xg_i))
+            \sigma'(\zr^{(2)}_1) \;\cdot\; W^{(2)}_{1,2}\sigma'(\zb^{(1)}_2)       \\                          \frac{\partial C}{\partial b^{(2)}_1} & = \sum_{i=1}^{n}  (\yr_i-f(\xg_i))
+            \sigma'(\zr^{(2)}_1) 
+           \end{align}
+
+
+
+
+
+
+
+           
+
+
+            
+ \end{document}
+
+;;; Local Variables: ***
+;;; TeX-command-default: "LaTeX" ***
+;;; End: ***
+
